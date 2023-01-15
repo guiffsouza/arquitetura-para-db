@@ -4,8 +4,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 export class MongoDB extends BancoDeDados {
-  constructor(model) {
-    super(mongoose, model);
+  constructor() {
+    super(mongoose);
   }
 
   static conectar() {
@@ -22,13 +22,18 @@ export class MongoDB extends BancoDeDados {
     return db;
   }
 
-  async listar() {
-    const dados = await this.model.find();
+  schema(dados) {
+    const schema = new mongoose.Schema(dados);
+    return mongoose.model("Personagem", schema);
+  }
+
+  async listar(model) {
+    const dados = await mongoose.models[model].find();
     return dados;
   }
 
-  criar(personagem) {
-    const novoPersonagem = new this.model({
+  criar(Personagem, personagem) {
+    const novoPersonagem = new Personagem({
       nome: personagem.nome,
       idade: personagem.idade,
       bibiografia: personagem.bibiografia,
