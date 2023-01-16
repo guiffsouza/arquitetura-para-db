@@ -1,8 +1,8 @@
 # Objetivo
 
-<p>A aplicação esta sendo desenvolvida usando NodeJS com Express</p>
-
 > Status: Development
+
+<p>A aplicação esta sendo desenvolvida usando NodeJS com Express</p>
 
 <p>O objetivo desse código é realizar um estudo sobre arquitetura de software, onde é possivel realizar a implantação de qualquer banco de dados.</p>
 
